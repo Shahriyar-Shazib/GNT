@@ -7,21 +7,26 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\welcomeNewUserMail;
 use App\Events\MailHasSentEvent;
 use App\Mail\UserRequest;
+use App\scoreboardModel;
 
 class Usercontroller extends Controller
 {
     public function viewuserform()
     {
+        //dd('1230');
+        // $res=scoreboardModel::all();
+        // return $res;
+        //print_r($res);
         return view('insertuser');
     }
     public function insert(Request $req)
     {
-
-        event(new MailHasSentEvent($req));
-        //  $email=$req->input('email');
-         
+       
+           $userEmail=$req->input('email'); 
+         event(new MailHasSentEvent($userEmail));
+     
+        // return redirect('/newuser');
         
-        //  return view('Newpage');
-        // echo "Email Has Been Sent";
+        
     }
 }

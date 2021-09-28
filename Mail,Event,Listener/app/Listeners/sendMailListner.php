@@ -19,6 +19,8 @@ class sendMailListner
      */
     public function handle($event)
     {
+        // sleep(10);
         Mail::to($event->$req->$email)->send(new welcomeNewUserMail());
+        
     }
 }
