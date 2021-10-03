@@ -16,4 +16,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/as', function () {
     return view('welcome');
 });
-Route::get('/','YAjraDataTableController@showtable');
+Route::get('/user-list','YAjraDataTableController@showtable')->name('showtable');

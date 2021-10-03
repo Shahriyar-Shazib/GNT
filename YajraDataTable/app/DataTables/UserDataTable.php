@@ -22,7 +22,7 @@ class UserDataTable extends DataTable
     public function dataTable($query)
     {
         return datatables()
-            ->eloquent($query)
+            ->eloquent($query)  
             ->addColumn('action', 'user.action');
     }
 
@@ -32,7 +32,7 @@ class UserDataTable extends DataTable
      * @param \App\App\User $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(AuthUser $model)
+    public function query(AppUser $model)
     {
         return $model->newQuery();
     }
@@ -49,14 +49,14 @@ class UserDataTable extends DataTable
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                 
-                    ->orderBy(1)
-                    ->buttons(
-                        Button::make('create'),
-                        Button::make('export'),
-                        Button::make('print'),
-                        Button::make('reset'),
-                        Button::make('reload')
-                    );
+                    ->orderBy(1);
+                    // ->buttons(
+                    //     Button::make('create'),
+                    //     Button::make('export'),
+                    //     Button::make('print'),
+                    //     Button::make('reset'),
+                    //     Button::make('reload')
+                    // );
     }
 
     /**
